@@ -71,12 +71,19 @@
       }
       return '<span class="price req"><span class="lbl">PRICE</span><span class="amt">Request quote</span></span>';
     };
-    var card = function (p) {
-      return '<article class="card reveal">' +
-        '<span class="kind">' + p.cat + " · " + p.brand + "</span>" +
-        "<h3>" + p.name + "</h3>" +
-        "<p>" + p.blurb + "</p>" +
-        priceChip(p) +
+    var card = function (p, idx) {
+      var img = p.img ? '<div class="card-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" width="400" height="300"></div>' : "";
+      return '<article class="card reveal" data-idx="' + idx + '" tabindex="0" role="button" aria-label="View specifications for ' + p.name + '">' +
+        img +
+        '<div class="card-body">' +
+          '<span class="kind">' + p.cat + " · " + p.brand + "</span>" +
+          "<h3>" + p.name + "</h3>" +
+          "<p>" + p.blurb + "</p>" +
+          '<div class="card-footer">' +
+            '<span class="quick-view">Quick Specs <span class="arr">↗</span></span>' +
+            priceChip(p) +
+          '</div>' +
+        "</div>" +
         '</article>';
     };
 
@@ -100,10 +107,79 @@
       });
     }
 
-    grid.innerHTML = PRODUCTS.map(card).join("");
+    grid.innerHTML = PRODUCTS.map(function(p, i) { return card(p, i); }).join("");
     /* tag cards for the filter */
     grid.querySelectorAll(".card").forEach(function (c, i) {
       c.setAttribute("data-cat", PRODUCTS[i].cat);
+    });
+
+    /* Apple-style Quick Spec Modal */
+    var modal = document.createElement("div");
+    modal.className = "spec-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.innerHTML = '<div class="spec-backdrop"></div>' +
+      '<div class="spec-card">' +
+        '<button class="spec-card-close" aria-label="Close modal">×</button>' +
+        '<div class="spec-card-visual"><img id="sm-img" src="" alt=""></div>' +
+        '<div class="spec-card-content">' +
+          '<div class="spec-header">' +
+            '<span class="kind" id="sm-kind"></span>' +
+            '<h2 id="sm-name"></h2>' +
+            '<p id="sm-blurb"></p>' +
+            '<div class="spec-pills">' +
+              '<span class="spec-pill">Industrial Precision</span>' +
+              '<span class="spec-pill">Production Ready</span>' +
+              '<span class="spec-pill">Full Warranty</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="spec-footer">' +
+            '<div id="sm-price"></div>' +
+            '<a class="btn" id="sm-btn" href="contact.html">Request Quotation &rarr;</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    function openModal(p) {
+      document.getElementById("sm-img").src = p.img || "assets/img/curated/uv_flatbed.jpg";
+      document.getElementById("sm-img").alt = p.name;
+      document.getElementById("sm-kind").textContent = p.cat + " · " + p.brand;
+      document.getElementById("sm-name").textContent = p.name;
+      document.getElementById("sm-blurb").textContent = p.blurb + " Engineered for sustained industrial runs, high output fidelity, and maximum uptime on your production floor.";
+      document.getElementById("sm-price").innerHTML = priceChip(p);
+      document.getElementById("sm-btn").href = "contact.html?interest=" + encodeURIComponent(p.name);
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    grid.addEventListener("click", function (e) {
+      var cardEl = e.target.closest(".card");
+      if (!cardEl) return;
+      var idx = Number(cardEl.getAttribute("data-idx"));
+      if (PRODUCTS[idx]) openModal(PRODUCTS[idx]);
+    });
+
+    grid.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        var cardEl = e.target.closest(".card");
+        if (cardEl) {
+          e.preventDefault();
+          var idx = Number(cardEl.getAttribute("data-idx"));
+          if (PRODUCTS[idx]) openModal(PRODUCTS[idx]);
+        }
+      }
+    });
+
+    modal.querySelector(".spec-backdrop").addEventListener("click", closeModal);
+    modal.querySelector(".spec-card-close").addEventListener("click", closeModal);
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
     });
   }
 
@@ -134,20 +210,28 @@
     }, 2600);
   }
 
-  /* ---- contact / enquiry form (mailto, no backend) ---- */
+  /* ---- contact / enquiry form: Formspree when FORM_ID set, else mailto ---- */
   var form = document.getElementById("quote-form");
   if (form) {
+    var FORM_ID = "YOUR_FORMSPREE_ID"; /* paste the id from formspree.com/f/<id> */
+    var note = form.querySelector(".mono");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var f = new FormData(form);
-      var body = encodeURIComponent(
-        "Name: " + (f.get("name") || "") + "\n" +
-        "Phone: " + (f.get("phone") || "") + "\n" +
-        "Interested in: " + (f.get("interest") || "") + "\n\n" +
-        (f.get("msg") || "")
-      );
-      window.location.href = "mailto:marketing@infinitydigitalsolutions.com?subject=" +
-        encodeURIComponent("Machine Enquiry — " + (f.get("interest") || "infinity")) + "&body=" + body;
+      if (FORM_ID === "YOUR_FORMSPREE_ID") {
+        var body = "Name: " + (f.get("name") || "") + "\n" +
+          "Phone: " + (f.get("phone") || "") + "\n" +
+          "Interested in: " + (f.get("interest") || "") + "\n\n" +
+          (f.get("msg") || "");
+        window.location.href = "mailto:marketing@infinitydigitalsolutions.com?subject=" +
+          encodeURIComponent("Machine Enquiry — " + (f.get("interest") || "infinity")) + "&body=" + encodeURIComponent(body);
+        if (note) note.textContent = "OPENS YOUR EMAIL CLIENT — SET FORM_ID IN js/app.js FOR SERVER-SIDE SUBMIT";
+        return;
+      }
+      if (note) note.textContent = "SENDING…";
+      fetch("https://formspree.io/f/" + FORM_ID, { method: "POST", body: f, headers: { Accept: "application/json" } })
+        .then(function (r) { if (note) note.textContent = r.ok ? "SENT — REPLY WITHIN ONE WORKING DAY" : "SEND FAILED — CALL THE HOTLINE"; })
+        .catch(function () { if (note) note.textContent = "NETWORK ERROR — CALL THE HOTLINE"; });
     });
   }
 
