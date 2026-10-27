@@ -238,4 +238,20 @@
   /* footer year */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+
+  /* tactile click micro-animation */
+  document.addEventListener("pointerdown", function (e) {
+    var el = e.target.closest(".btn, .cat-chip, .quick-view, .card, .bento-card, .why-card, .arrow-link, button, nav a");
+    if (!el) return;
+    el.style.transition = "transform 0.08s cubic-bezier(0.16, 1, 0.3, 1)";
+    el.style.transform = "scale(0.96) translateY(1px)";
+    var reset = function () {
+      el.style.transform = "";
+      setTimeout(function () { el.style.transition = ""; }, 180);
+      window.removeEventListener("pointerup", reset);
+      window.removeEventListener("pointercancel", reset);
+    };
+    window.addEventListener("pointerup", reset);
+    window.addEventListener("pointercancel", reset);
+  }, { passive: true });
 })();
