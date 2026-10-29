@@ -314,3 +314,7 @@ section{content-visibility:auto;contain-intrinsic:900px}
 button:active, .btn:active, .card:active, .seg-btn:active, .brand-card:active, .why-card:active {
   transform: scale(0.96) translateY(1px) !important;
 }
+
+/* Motion engine — SplitText reveal */
+.sl-line { display: block; overflow: hidden; }
+.sl-char { display: inline-block; will-change: transform; }

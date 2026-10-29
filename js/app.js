@@ -151,11 +151,13 @@
       document.getElementById("sm-btn").href = "contact.html?interest=" + encodeURIComponent(p.name);
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
+      document.dispatchEvent(new Event("site:lock-scroll"));
     }
 
     function closeModal() {
       modal.classList.remove("open");
       document.body.style.overflow = "";
+      document.dispatchEvent(new Event("site:unlock-scroll"));
     }
 
     grid.addEventListener("click", function (e) {
