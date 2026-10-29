@@ -308,3 +308,9 @@ section{content-visibility:auto;contain-intrinsic:900px}
   .burger{display:block;background:none;border:1.5px solid var(--line-strong);color:var(--ink);font-family:var(--body);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;cursor:pointer;border-radius:999px;transition:transform .1s}
   .burger:active{transform:scale(.92)}
 }
+
+
+/* Tactile Press Engine */
+button:active, .btn:active, .card:active, .seg-btn:active, .brand-card:active, .why-card:active {
+  transform: scale(0.96) translateY(1px) !important;
+}
