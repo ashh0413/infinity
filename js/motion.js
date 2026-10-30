@@ -41,7 +41,7 @@
     lenis.on("scroll", function () { window.ScrollTrigger.update(); });
 
     /* Hero headline character reveal */
-    var h1 = document.querySelector(".hero h1, #hc-h1, h1");
+    var h1 = document.querySelector(".hero-axis h1") || document.querySelector("h1");
     if (h1 && window.SplitText) {
       var st = new window.SplitText(h1, { type: "chars", lineClassName: "sl-line", charClassName: "sl-char" });
       gsap.fromTo(st.chars, { yPercent: 115, opacity: 0 }, {
@@ -68,9 +68,9 @@
     });
 
     /* Hero machine parallax */
-    var vis = document.querySelector(".hero-axis-visual img, .hero img");
+    var vis = document.querySelector(".hero-axis-visual img");
     if (vis) {
-      gsap.to(vis, { y: 90, ease: "none", scrollTrigger: { trigger: ".hero, .hero-axis", start: "top top", end: "bottom top", scrub: true } });
+      gsap.to(vis, { y: 90, ease: "none", scrollTrigger: { trigger: ".hero-axis", start: "top top", end: "bottom top", scrub: true } });
     }
 
     /* Smooth in-page anchor scroll */

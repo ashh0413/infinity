@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%41%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=inf20261028">
+<link rel="stylesheet" href="css/style.css?v=fable5v1">
 </head>
 <body>
 <div class="strip">
@@ -32,38 +32,48 @@
       <a href="brands.html">Brands</a>
       <a href="about.html">About</a>
       <a href="contact.html">Quote</a>
-      <a class="btn" href="tel:+919811214579">+91 98112 14579</a>
+      <a class="btn" href="contact.html">Request a Quote &rarr;</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero" id="hero-carousel">
-  <div class="hc-slide on">
-      <img src="assets/img/curated/studio_hero.jpg" alt="Industrial digital printing machinery showroom" fetchpriority="high" loading="eager">
-    </div>
-<div class="hc-slide">
-      <img src="assets/img/curated/uv_flatbed.jpg" alt="DOCAN UV flatbed precision printing" loading="eager" fetchpriority="low">
-    </div>
-<div class="hc-slide">
-      <img src="assets/img/curated/textile_roll.jpg" alt="Digital textile roll production" loading="eager" fetchpriority="low">
-    </div>
-<div class="hc-slide">
-      <img src="assets/img/curated/solvent_main.jpg" alt="High speed solvent inkjet production" loading="eager" fetchpriority="low">
-    </div>
+<!-- Hero Section (Axis Works Split Architecture - Reference: 12.png) -->
+<section class="hero-axis">
+  <div class="wrap hero-axis-grid">
+    <div class="hero-axis-content">
+      <p class="kicker">ADVANCED PRINTING SYSTEMS &nbsp;/&nbsp; EST. 2006</p>
+      <h1>Every machine<br>your print floor can run on.</h1>
+      <p class="hero-axis-sub">From entry-level solvent printers to high-speed UV flatbeds and soft-signage platforms &mdash; authorized DOCAN, Mimaki, and Konica Minolta partners with 24/7 technical hotline dispatch.</p>
 
-  <div class="hc-copy"><div class="wrap">
-      <p class="eyebrow" id="hc-eyebrow">Since 2006 · New Delhi</p>
-      <h1 id="hc-h1">Every machine <em>your print floor</em> can run on.</h1>
-      <p class="sub" id="hc-sub">For a decade Infinity Digital Solutions has supplied entry-level solvent printers to high-end UV and soft-signage platforms — with inks, print heads and spares to keep them running.</p>
-      <div class="ctas">
-        <a class="btn on-photo" href="products.html">Browse Machines</a>
-        <a class="btn ghost" href="contact.html">Get a Quote</a>
+      <div class="hero-axis-actions">
+        <a class="btn-primary" href="products.html">Browse Machines &rarr;</a>
+        <span class="hero-action-divider"></span>
+        <a class="btn-secondary-link" href="contact.html">Request a Quote <span class="arr">&rarr;</span></a>
       </div>
-    </div></div>
 
-  <div class="hc-dots"><button class="hc-dot on" data-i="0" aria-label="Slide 1"></button><button class="hc-dot" data-i="1" aria-label="Slide 2"></button><button class="hc-dot" data-i="2" aria-label="Slide 3"></button><button class="hc-dot" data-i="3" aria-label="Slide 4"></button></div>
-  <div class="hc-count" id="hc-count">01 / 04</div>
+      <!-- 3 Metrics Bar with vertical dividers -->
+      <div class="hero-metrics">
+        <div class="metric-block">
+          <span class="metric-val">&#8377; 3.5L&ndash;55L</span>
+          <span class="metric-lbl">Published Price Range</span>
+        </div>
+        <div class="metric-block">
+          <span class="metric-val">24/7 Service</span>
+          <span class="metric-lbl">Hotline &amp; On-Site SLA</span>
+        </div>
+        <div class="metric-block">
+          <span class="metric-val">4.2 / 5</span>
+          <span class="metric-lbl">IndiaMART &middot; 13 Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Impact Industrial Machine Visual -->
+    <div class="hero-axis-visual">
+      <img src="assets/img/hero_machine_dark.png" alt="Industrial Wide-Format Digital Printing Machinery" width="900" height="900" fetchpriority="high">
+    </div>
+  </div>
 </section>
 
 <section style="padding:44px 0">
