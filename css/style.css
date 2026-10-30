@@ -536,3 +536,104 @@ nav a.btn:hover {
   background: #f03d22 !important;
   transform: translateY(-1px) !important;
 }
+
+
+/* Transparent floating header & minimal brand title (matching 12.png) */
+body > header, .site-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  z-index: 50 !important;
+  padding: 8px 0;
+}
+.logo.brand-title, .brand-title {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  font-size: 21px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+.hero-axis {
+  padding-top: clamp(110px, 14vh, 150px) !important;
+}
+nav a {
+  font-family: var(--body) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+nav a:hover {
+  color: #ffffff !important;
+}
+nav a.btn {
+  background: #e23319 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  padding: 11px 22px !important;
+  box-shadow: 0 4px 20px rgba(226, 51, 25, 0.45) !important;
+}
+
+
+/* Hero enhancements matching 12.png */
+.hero-axis .kicker {
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+.hero-axis-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 20px !important;
+  margin: 34px 0 46px 0 !important;
+}
+.hero-action-divider {
+  display: inline-block !important;
+  width: 1px !important;
+  height: 22px !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+.hero-axis-actions .btn-secondary-link {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 5px !important;
+  text-decoration-color: rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+.hero-axis-actions .btn-secondary-link:hover {
+  text-decoration-color: #ffffff !important;
+  color: #ffffff !important;
+}
+.hero-axis-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-axis-visual img {
+  width: 100% !important;
+  max-width: 580px !important;
+  height: auto !important;
+  transform: scale(1.18);
+  transform-origin: center right;
+  filter: drop-shadow(0 14px 40px rgba(0, 0, 0, 0.7));
+}
+.foot-logo {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+}
