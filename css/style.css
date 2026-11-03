@@ -794,3 +794,12 @@ header, .site-header {
   filter: blur(50px);
   pointer-events: none;
 }
+
+
+/* Headline typography safeguards — prevents character wrapping across all viewports */
+.hero-axis h1, h1 {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  hyphens: manual !important;
+  white-space: normal !important;
+}
