@@ -8,16 +8,16 @@
 }
 
 :root{
-  --bg:#ffffff;
-  --surface:#f6f7fa;
-  --surface-2:#eef1f5;
-  --line:#e2e5eb;
-  --line-strong:#ccd1db;
-  --ink:#14161b;
-  --ink-soft:#525762;
-  --dim:#9096a2;
+  --bg: #08090c;
+  --surface: #101218;
+  --surface-2: #141720;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --ink: #ffffff;
+  --ink-soft: #9ba1ad;
+  --dim: #888f9e;
   --red:#e23319;
-  --red-deep:#b52a12;
+  --red-deep: #ff5533;
   --ruby-rich:#c01e0d;
   --gold:#c8a762;
   --gold-glow:rgba(200,167,98,.22);
@@ -39,7 +39,7 @@
 html{scroll-behavior:auto}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:var(--t-body);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:var(--red-deep);text-decoration:none}
+a { color: #ff5533;text-decoration:none}
 a:hover{color:var(--red)}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
@@ -802,4 +802,285 @@ header, .site-header {
   overflow-wrap: break-word !important;
   hyphens: manual !important;
   white-space: normal !important;
+}
+
+
+/* ==========================================================================
+   IMPECCABLE SPACING SYSTEM & LAYOUT TOKENS (4px / 8px Base Scale)
+   ========================================================================== */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --touch-target-min: 44px;
+  --card-pad: clamp(24px, 3.2vw, 36px);
+  --section-pad: clamp(80px, 8.5vw, 120px);
+}
+
+/* Universal Dark Titanium Obsidian Base */
+body {
+  background: var(--bg) !important;
+  color: #ffffff !important;
+}
+
+/* Section Rhythm */
+.section {
+  padding: var(--section-pad) 0 !important;
+}
+.section-head {
+  margin-bottom: var(--space-12) !important;
+  max-width: 680px !important;
+}
+.section-head h2 {
+  font-size: var(--t-h2) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.025em !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-top: 0 !important;
+}
+.section-head p {
+  margin-top: var(--space-4) !important;
+  color: #9ba1ad !important;
+  font-size: var(--t-lead) !important;
+  line-height: 1.6 !important;
+}
+
+/* Grids & Gutters */
+.grid, .grid.tri, .bento-tri {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--space-8) !important;
+}
+.why-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--space-6) !important;
+}
+.brand-grid, .quote-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--space-6) !important;
+  background: transparent !important;
+  border: none !important;
+}
+.catalog {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: var(--space-8) !important;
+}
+
+/* Card Surfaces (Frosted Obsidian Glass) */
+.why-card, .quote, .brand, .facility-card {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 18px !important;
+  padding: var(--card-pad) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease !important;
+}
+.why-card:hover, .quote:hover, .brand:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 48px rgba(0, 0, 0, 0.6) !important;
+}
+.why-card h3, .brand h3 {
+  color: #ffffff !important;
+}
+.why-card p, .brand p, .quote p {
+  color: #9ba1ad !important;
+}
+.why-num {
+  font-family: var(--mono);
+  font-size: 11.5px !important;
+  font-weight: 700;
+  color: #ff5533 !important;
+  letter-spacing: 0.12em;
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  background: rgba(226, 51, 25, 0.12) !important;
+  border: 1px solid rgba(226, 51, 25, 0.3) !important;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* Stat row cards on about page */
+.stat-row {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--space-4) !important;
+  background: transparent !important;
+  border: none !important;
+  margin-top: var(--space-12) !important;
+}
+.stat {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: var(--space-6) !important;
+}
+.stat .v {
+  color: #ffffff !important;
+}
+.stat .k {
+  color: #ff5533 !important;
+  font-size: 11px !important;
+}
+.stat .sub {
+  color: #8b919e !important;
+  font-size: 11px !important;
+}
+
+/* Touch Targets: minimum 44x44px tap clearance */
+nav a, .cat-chip, .btn, .arrow-link, .dock-action-btn, .nav-circle-btn, .burger {
+  min-height: var(--touch-target-min);
+  box-sizing: border-box;
+}
+.cat-chip {
+  padding: 11px 22px !important;
+  font-size: 12px !important;
+}
+.cats {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 6px !important;
+}
+.cat-chip.on {
+  background: #e23319 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(226, 51, 25, 0.45) !important;
+}
+.burger {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 16px !important;
+  font-size: 11.5px !important;
+}
+
+/* Undersized UI Text Quality Floor (>= 11px) */
+.strip {
+  font-size: 11.5px !important;
+  padding: 10px 0 !important;
+}
+.strip .wrap {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+.kind, .card .kind, .bento-body .kind {
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  color: #ff5533 !important;
+}
+footer h4 {
+  font-size: 11px !important;
+  letter-spacing: 0.16em !important;
+  color: #ffffff !important;
+}
+footer {
+  background: #06070a !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+footer p, footer li, footer a {
+  color: #8b919e !important;
+}
+footer a:hover {
+  color: #ffffff !important;
+}
+footer .bottom {
+  font-size: 11px !important;
+  color: #6c7380 !important;
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+
+/* Extra Impeccable Refinements */
+.dock-select-wrap {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.dock-select {
+  min-height: 44px !important;
+  font-size: 13.5px !important;
+  padding: 10px 18px 10px 0 !important;
+}
+.drawer-phone, .drawer-email {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 6px 0 !important;
+}
+.kind, .card .kind, .bento-body .kind {
+  font-size: 11.5px !important;
+  letter-spacing: 0.14em !important;
+  color: #ff5533 !important;
+  display: inline-block !important;
+}
+footer h4 {
+  font-size: 11.5px !important;
+  letter-spacing: 0.16em !important;
+  color: #ffffff !important;
+}
+footer .bottom {
+  font-size: 11.5px !important;
+  color: #888f9e !important;
+}
+.hero-flat, .hero {
+  padding-top: clamp(80px, 9vw, 120px) !important;
+  padding-bottom: clamp(64px, 8vw, 104px) !important;
+}
+.hero-flat h1, .hero h1 {
+  margin-bottom: 20px !important;
+}
+.hero-flat .sub, .hero .sub {
+  margin-bottom: 32px !important;
+}
+.why-num {
+  font-size: 12px !important;
+}
+
+
+/* Footer & Nav Touch Targets & Typography floor */
+footer .top h4 {
+  font-size: 11.5px !important;
+  letter-spacing: 0.14em !important;
+  color: #ffffff !important;
+}
+footer .top ul li a, footer .top p a {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 38px !important;
+  padding: 4px 0 !important;
+  font-size: 13.5px !important;
+}
+footer .foot-logo a {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+footer .bottom {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+footer .bottom span {
+  font-size: 11px !important;
+}
+footer p[style*="font-size:10px"] {
+  font-size: 11px !important;
+}
+nav a {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 44px !important;
 }

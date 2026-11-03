@@ -14,67 +14,158 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%41%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css?v=fable5v1">
+  <link rel="stylesheet" href="css/editorial-hero.css?v=1">
 </head>
 <body>
 
-
-<header>
-  <div class="wrap">
-    <a class="logo brand-title" href="index.html">INFINITY</a>
-    <button class="burger" aria-label="Menu">Menu</button>
-    <nav>
-      <a href="products.html">Machines</a>
-      <a href="brands.html">Brands</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Quote</a>
-      <a class="btn" href="contact.html">Request a Quote &rarr;</a>
-    </nav>
+<!-- Slide-out Menu Drawer -->
+<div class="editorial-drawer-overlay" id="editorial-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+  <div class="editorial-drawer-panel">
+    <div>
+      <div class="drawer-head">
+        <span class="drawer-title">INFINITY</span>
+        <button class="drawer-close-btn" id="editorial-drawer-close" aria-label="Close Menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html" class="drawer-link accent">Home</a>
+        <a href="products.html" class="drawer-link">Explore Machines</a>
+        <a href="brands.html" class="drawer-link">Authorized Brands</a>
+        <a href="about.html" class="drawer-link">Our Story &amp; Facility</a>
+        <a href="contact.html" class="drawer-link">Service &amp; Hotline SLA</a>
+        <a href="contact.html" class="drawer-link">Request Factory Quote</a>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-hotline">24/7 TECHNICAL HELPLINE</div>
+      <a href="tel:+919811214579" class="drawer-phone">+91 98112 14579</a>
+      <a href="mailto:marketing@infinitydigitalsolutions.com" class="drawer-email">marketing@infinitydigitalsolutions.com</a>
+      <p style="font-size:12px;color:#707784;margin:12px 0 0 0;line-height:1.4;">5/7, Kirti Nagar Industrial Area, New Delhi — 110015</p>
+    </div>
   </div>
-</header>
+</div>
 
 <main>
-<!-- Hero Section (Axis Works Split Architecture - Reference: 12.png) -->
-<section class="hero-axis">
-  <div class="wrap hero-axis-grid">
-    <div class="hero-axis-content">
-      <p class="kicker">ADVANCED PRINTING SYSTEMS &nbsp;/&nbsp; EST. 2006</p>
-      <h1>Every machine<br>your print floor can run on.</h1>
-      <p class="hero-axis-sub">From entry-level solvent printers to high-speed UV flatbeds and soft-signage platforms &mdash; authorized DOCAN, Mimaki, and Konica Minolta partners with 24/7 technical hotline dispatch.</p>
+<!-- Editorial Framed Cut-Out Hero Section -->
+<div class="editorial-frame-wrap">
+  <div class="editorial-hero-card">
+    
+    <!-- Atmospheric Industrial Background Layers -->
+    <div class="editorial-bg-layer" aria-hidden="true">
+      <img src="assets/img/curated/facility_hall.jpg" alt="" class="editorial-bg-img" fetchpriority="high">
+      <div class="editorial-bg-overlay"></div>
+      <div class="editorial-bg-glow"></div>
+      <img src="assets/img/hero_machine_dark.png" alt="Industrial Wide-Format Digital Printing Machine" class="editorial-machine-hero" fetchpriority="high">
+    </div>
 
-      <div class="hero-axis-actions">
-        <a class="btn-primary" href="products.html">Browse Machines &rarr;</a>
-        <span class="hero-action-divider"></span>
-        <a class="btn-secondary-link" href="contact.html">Request a Quote <span class="arr">&rarr;</span></a>
+    <!-- Top Navigation Bar -->
+    <header class="editorial-nav-bar">
+      <!-- Left: Circular Hamburger Button -->
+      <button class="nav-circle-btn" id="editorial-menu-toggle" aria-label="Open Navigation Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+
+      <!-- Center: 3 Navigation Buttons tailored to Infinity's Industrial Machinery -->
+      <nav class="editorial-nav-center" aria-label="Primary Navigation">
+        <a href="products.html" class="nav-center-link">Explore Machines</a>
+        <a href="about.html" class="nav-center-link">Our Story</a>
+        <a href="contact.html" class="nav-center-link">Service &amp; SLA</a>
+      </nav>
+
+      <!-- Right: Accent Pill Button with Diagonal Arrow -->
+      <div class="editorial-nav-right">
+        <a href="contact.html" class="nav-pill-cta">
+          <span>Request a Quote</span>
+          <span class="cta-arrow">&#x2197;</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Giant Brand Display Typography across top half ("infinity") -->
+    <div class="editorial-brand-display" aria-hidden="true">
+      <h1 class="editorial-giant-title">infinity</h1>
+    </div>
+
+    <!-- Bottom Content Grid -->
+    <div class="editorial-bottom-grid">
+      <!-- Bottom Left: Kicker, Headline, Subcaption -->
+      <div class="editorial-hero-copy">
+        <h2 class="editorial-main-heading">A better machine<br>for your print floor.</h2>
+        <p class="editorial-subline">From high-speed UV flatbeds to roll-to-roll eco-solvent and soft signage &mdash; authorized DOCAN, Mimaki and Konica Minolta distributor with 24/7 hotline dispatch.</p>
+        <p class="editorial-badge-meta">Precision engineered &middot; Factory calibrated in New Delhi &middot; Published &#8377; 3.5L&ndash;55L</p>
       </div>
 
-      <!-- 3 Metrics Bar with vertical dividers -->
-      <div class="hero-metrics">
-        <div class="metric-block">
-          <span class="metric-val">&#8377; 3.5L&ndash;55L</span>
-          <span class="metric-lbl">Published Price Range</span>
+      <!-- Bottom Right: Interactive Spec / Machine Selector Dock -->
+      <div class="editorial-dock-container">
+        <div class="editorial-dock-card">
+          <div class="dock-segment">
+            <span class="dock-label">TECHNOLOGY?</span>
+            <div class="dock-select-wrap">
+              <select id="dock-tech-select" class="dock-select" aria-label="Select Technology">
+                <option value="products.html#uv">UV Flatbed &amp; Hybrid</option>
+                <option value="products.html#eco-solvent">Eco-Solvent Flex</option>
+                <option value="products.html#textile">Digital Textile</option>
+                <option value="products.html#cnc">CNC &amp; Laser Cutting</option>
+                <option value="products.html" selected>All Technologies</option>
+              </select>
+              <span class="dock-chevron">&#x2304;</span>
+            </div>
+          </div>
+          <div class="dock-divider"></div>
+          <div class="dock-segment">
+            <span class="dock-label">APPLICATION?</span>
+            <div class="dock-select-wrap">
+              <select id="dock-app-select" class="dock-select" aria-label="Select Application">
+                <option value="products.html#uv">Rigid Acrylic &amp; Glass</option>
+                <option value="products.html#eco-solvent">Outdoor Signage &amp; Vinyl</option>
+                <option value="products.html#textile">Apparel &amp; Soft Signage</option>
+                <option value="products.html#cnc">Sheet Metal &amp; Wood</option>
+                <option value="products.html" selected>Any Application</option>
+              </select>
+              <span class="dock-chevron">&#x2304;</span>
+            </div>
+          </div>
+          <div class="dock-divider"></div>
+          <div class="dock-segment">
+            <span class="dock-label">INVESTMENT?</span>
+            <div class="dock-select-wrap">
+              <select id="dock-budget-select" class="dock-select" aria-label="Select Budget Range">
+                <option value="products.html">&#8377; 3.5L &ndash; 12L (Entry)</option>
+                <option value="products.html">&#8377; 15L &ndash; 35L (Production)</option>
+                <option value="products.html">&#8377; 35L &ndash; 55L (Industrial)</option>
+                <option value="products.html" selected>All Ranges</option>
+              </select>
+              <span class="dock-chevron">&#x2304;</span>
+            </div>
+          </div>
+          <a href="products.html" id="dock-submit-btn" class="dock-action-btn" aria-label="Find Machine">
+            <span class="dock-arrow">&#x2197;</span>
+          </a>
         </div>
-        <div class="metric-block">
-          <span class="metric-val">24/7 Service</span>
-          <span class="metric-lbl">Hotline &amp; On-Site SLA</span>
-        </div>
-        <div class="metric-block">
-          <span class="metric-val">4.2 / 5</span>
-          <span class="metric-lbl">IndiaMART &middot; 13 Reviews</span>
+
+        <!-- Micro status indicators below dock -->
+        <div class="editorial-status-bar">
+          <div class="status-live-indicator">
+            <span class="status-dot"></span>
+            <span>24/7 Hotline Live</span>
+          </div>
+          <a href="#what-we-do" class="status-scroll-prompt">
+            <span>Take a look around</span>
+            <span class="status-scroll-arrow">&#x2193;</span>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- High-Impact Industrial Machine Visual -->
-    <div class="hero-axis-visual">
-      <img src="assets/img/hero_machine_dark.png" alt="Industrial Wide-Format Digital Printing Machinery" width="900" height="900" fetchpriority="high">
-    </div>
   </div>
-</section>
+</div>
 
-<section class="section">
+<section class="section" id="what-we-do">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">What we do</p>
       <h2>Machines, inks and the parts that keep them moving.</h2>
       <p>Products and services ranging from entry-level solvent printers to high-end UV and soft signage printers — plus Xaar print heads and Infiniti ink, for every brand we supply.</p>
     </div>
@@ -110,10 +201,9 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--surface)">
+<section class="section" >
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Why Infinity</p>
       <h2>Precision engineering. Uncompromising service.</h2>
     </div>
     <div class="why-grid">
@@ -195,5 +285,40 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.5/dist/lenis.min.js"></script>
 <script src="js/motion.js" defer></script>
+<script>
+  // Editorial Menu Drawer Toggle
+  const menuToggle = document.getElementById('editorial-menu-toggle');
+  const drawer = document.getElementById('editorial-drawer');
+  const drawerClose = document.getElementById('editorial-drawer-close');
+
+  if (menuToggle && drawer) {
+    menuToggle.addEventListener('click', () => drawer.classList.add('open'));
+  }
+  if (drawerClose && drawer) {
+    drawerClose.addEventListener('click', () => drawer.classList.remove('open'));
+  }
+  if (drawer) {
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) drawer.classList.remove('open');
+    });
+  }
+
+  // Interactive Machine Dock Navigation
+  const techSelect = document.getElementById('dock-tech-select');
+  const appSelect = document.getElementById('dock-app-select');
+  const dockBtn = document.getElementById('dock-submit-btn');
+
+  function updateDockHref() {
+    if (techSelect && dockBtn) {
+      dockBtn.href = techSelect.value || 'products.html';
+    }
+  }
+  if (techSelect) techSelect.addEventListener('change', updateDockHref);
+  if (appSelect) {
+    appSelect.addEventListener('change', () => {
+      if (dockBtn) dockBtn.href = appSelect.value || 'products.html';
+    });
+  }
+</script>
 </body>
 </html>
