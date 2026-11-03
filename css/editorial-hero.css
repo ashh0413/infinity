@@ -632,7 +632,7 @@
     padding: 18px 16px;
   }
   .editorial-nav-bar nav.editorial-nav-center {
-    display: none !important; /* Mobile accesses all 3 links via circular menu drawer */
+    /* keep visible on all devices */ /* Mobile accesses all 3 links via circular menu drawer */
   }
   .editorial-dock-card {
     flex-direction: column;
@@ -889,5 +889,96 @@
   .editorial-bottom-grid {
     grid-template-columns: 1fr !important;
     gap: 36px !important;
+  }
+}
+
+
+/* Position machine cleanly above the dock without overlapping */
+.editorial-machine-hero {
+  position: absolute;
+  bottom: clamp(90px, 13vh, 150px) !important;
+  right: clamp(10px, 2.8vw, 50px) !important;
+  width: clamp(380px, 38vw, 620px) !important;
+  height: auto !important;
+  z-index: 2 !important;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95)) !important;
+  opacity: 0.92 !important;
+  pointer-events: none !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Corner tag header row above dock (matching 7.webp) */
+.editorial-dock-header {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
+  gap: 16px !important;
+}
+.editorial-dock-header .editorial-dock-caption {
+  margin: 0 !important;
+}
+.editorial-dock-header .editorial-corner-tag {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 2px !important;
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 1080px) {
+  .editorial-machine-hero {
+    opacity: 0.35 !important;
+    width: 50vw !important;
+    bottom: clamp(140px, 20vh, 220px) !important;
+  }
+}
+@media (max-width: 768px) {
+  .editorial-machine-hero {
+    /* keep visible on all devices */
+  }
+}
+
+
+/* Guarantee printer image is always shown and gracefully positioned across all screen sizes */
+.editorial-machine-hero {
+  display: block !important;
+  position: absolute !important;
+  bottom: clamp(90px, 14vh, 160px) !important;
+  right: clamp(10px, 3vw, 60px) !important;
+  width: clamp(340px, 42vw, 640px) !important;
+  height: auto !important;
+  z-index: 2 !important;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95)) !important;
+  opacity: 0.92 !important;
+  pointer-events: none !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+@media (max-width: 1080px) {
+  .editorial-machine-hero {
+    display: block !important;
+    width: clamp(300px, 48vw, 480px) !important;
+    bottom: clamp(120px, 18vh, 200px) !important;
+    opacity: 0.75 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .editorial-machine-hero {
+    display: block !important;
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 18px auto 8px auto !important;
+    opacity: 0.9 !important;
   }
 }
