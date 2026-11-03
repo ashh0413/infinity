@@ -710,3 +710,184 @@
 .bento-body .kind {
   font-size: 11.5px !important;
 }
+
+
+/* ==========================================================================
+   USER REFINEMENTS — CLEAN NAV, GLASS CTA, MATCHING 6.WEBP & 7.WEBP
+   ========================================================================== */
+
+/* 1. Clean Hamburger Icon (no heavy circle border/bg) */
+.nav-clean-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  border-radius: 8px !important;
+}
+.nav-clean-btn:hover {
+  opacity: 0.8 !important;
+  transform: scale(1.05) !important;
+}
+.nav-clean-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* 2. Middle Navigation Links (no oval border / no pill container) */
+.editorial-nav-bar nav.editorial-nav-center {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(24px, 3.2vw, 44px) !important;
+}
+.editorial-nav-bar nav.editorial-nav-center a.nav-center-link {
+  font-family: var(--body) !important;
+  font-size: 14.5px !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  transition: color 0.2s ease !important;
+}
+.editorial-nav-bar nav.editorial-nav-center a.nav-center-link:hover {
+  color: #ffffff !important;
+}
+
+/* 3. White Transparent Glass CTA Button (no orange/red glow) */
+.nav-glass-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  color: #ffffff !important;
+  font-family: var(--body) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  padding: 10px 22px !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+}
+.nav-glass-cta:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+.nav-glass-cta:active {
+  transform: scale(0.96) translateY(1px) !important;
+}
+.nav-glass-cta .cta-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+.nav-glass-cta:hover .cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* 4. Top-Right Corner Tag (matching 7.webp: LESS ORDINARY. MORE YOU.) */
+.editorial-corner-tag {
+  position: absolute;
+  top: clamp(24px, 3.6vh, 40px);
+  right: clamp(24px, 3.2vw, 44px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* 5. Bottom Grid Layout & Wording Spacing (matching 7.webp) */
+.editorial-bottom-grid {
+  position: relative;
+  z-index: 10;
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: flex-end !important;
+  gap: clamp(32px, 5vw, 64px) !important;
+  margin-top: auto !important;
+  padding-top: clamp(32px, 5vh, 60px) !important;
+}
+
+.editorial-hero-copy {
+  display: flex;
+  flex-direction: column;
+}
+.editorial-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 14px 0;
+}
+.editorial-main-heading {
+  font-family: 'Inter', var(--display);
+  font-size: clamp(38px, 4.6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+}
+.editorial-handpicked-line {
+  font-family: var(--body);
+  font-size: clamp(13.5px, 1.1vw, 15px);
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Right: Caption + Dock */
+.editorial-dock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.editorial-dock-caption {
+  font-family: var(--body);
+  font-size: clamp(14px, 1.15vw, 16px);
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 14px 0;
+  line-height: 1.45;
+}
+.editorial-dock-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: rgba(14, 20, 26, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+@media (max-width: 1080px) {
+  .editorial-bottom-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+}
