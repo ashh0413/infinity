@@ -747,9 +747,13 @@
   -webkit-backdrop-filter: none !important;
   padding: 0 !important;
   margin: 0 !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   display: flex !important;
   align-items: center !important;
-  gap: clamp(24px, 3.2vw, 44px) !important;
+  gap: clamp(14px, 1.8vw, 22px) !important;
+  z-index: 12 !important;
 }
 .editorial-nav-bar nav.editorial-nav-center a.nav-center-link {
   font-family: var(--body) !important;
@@ -980,5 +984,11 @@
     max-width: 380px !important;
     margin: 18px auto 8px auto !important;
     opacity: 0.9 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .editorial-nav-bar nav.editorial-nav-center {
+    display: none !important;
   }
 }
