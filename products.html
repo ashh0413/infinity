@@ -36,15 +36,42 @@
 <section class="hero-flat">
   <div class="wrap">
     <h1>Every line, <em>priced honestly.</em></h1>
-    <p class="sub">Published IndiaMART price points where the client lists them; "request quote" where they don't. DOCAN, Mimaki, Konica, Xaar, Infiniti and our in-house IDS machines.</p>
-    <div class="cats" id="cats" style="margin-top:36px"></div>
+    <p class="sub">Published IndiaMART price points where the client lists them; "request quote" where they don't. DOCAN, Mimaki, Konica, Xaar, Infiniti and in-house IDS machines.</p>
+  </div>
+</section>
+
+<!-- Intuitive Filter, Search & Sort Control Bar -->
+<section class="catalog-bar-section">
+  <div class="wrap">
+    <div class="catalog-controls-bar">
+      <!-- Search & Sort Controls -->
+      <div class="controls-top">
+        <div class="search-box">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="catalog-search" placeholder="Search by model, brand (DOCAN, Mimaki...), or technology..." aria-label="Search machines">
+        </div>
+        <div class="sort-box">
+          <label for="catalog-sort" class="sort-lbl">Sort by:</label>
+          <select id="catalog-sort" aria-label="Sort catalog">
+            <option value="featured">Featured / Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Alphabetical: A → Z</option>
+          </select>
+        </div>
+      </div>
+      <!-- Category Pills -->
+      <div class="cats" id="cats"></div>
+      <!-- Result Count Live Badge -->
+      <div class="catalog-status" id="catalog-status" aria-live="polite">Showing all 30 machines</div>
+    </div>
   </div>
 </section>
 
 <section class="section" >
   <div class="wrap">
     <div class="catalog" id="grid"></div>
-    <p class="mono" style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);margin-top:40px">PRICES ARE LISTING REFERENCE POINTS · FINAL PRICE ON QUOTATION · INK AND SPARES STOCKED ACROSS ALL LINES</p>
+    <p class="mono" style="font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#9ba1ad;margin-top:40px">PRICES ARE LISTING REFERENCE POINTS · FINAL PRICE ON QUOTATION · INK AND SPARES STOCKED ACROSS ALL LINES</p>
   </div>
 </section>
 

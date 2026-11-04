@@ -62,37 +62,106 @@
   /* ---- catalog (products.html) ---- */
   var grid = document.getElementById("grid");
   if (grid && typeof PRODUCTS !== "undefined") {
-    var cats = [];
-    PRODUCTS.forEach(function (p) { if (cats.indexOf(p.cat) < 0) cats.push(p.cat); });
+    var searchInput = document.getElementById("catalog-search");
+    var sortSelect = document.getElementById("catalog-sort");
+    var statusEl = document.getElementById("catalog-status");
+    var catsEl = document.getElementById("cats");
+
+    var activeCat = "all";
+    var activeQuery = "";
+    var activeSort = "featured";
+
+    var parsePrice = function (p) {
+      if (!p.price) return 999999999;
+      var num = p.price.replace(/[^0-9]/g, "");
+      return parseInt(num, 10) || 999999999;
+    };
 
     var priceChip = function (p) {
       if (p.price) {
-        return '<span class="price"><span class="lbl">FROM</span><span class="amt">' + p.price + "</span></span>";
+        return '<span class="price"><span class="lbl">FROM</span><span class="amt">' + p.price + '</span></span>';
       }
-      return '<span class="price req"><span class="lbl">PRICE</span><span class="amt">Request quote</span></span>';
+      return '<span class="price req"><span class="lbl">PRICE</span><span class="amt">Quote on Request</span></span>';
     };
+
     var card = function (p, idx) {
-      var img = p.img ? '<div class="card-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" width="400" height="300"></div>' : "";
+      var img = p.img ? '<div class="card-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" width="400" height="300"></div>' : '<div class="card-img" style="background:#151821;display:flex;align-items:center;justify-content:center;color:#8891a0;font-size:12px;">PHOTO PENDING</div>';
+      var brandPill = '<span class="brand-pill">' + p.brand + '</span>';
       return '<article class="card reveal" data-idx="' + idx + '" tabindex="0" role="button" aria-label="View specifications for ' + p.name + '">' +
         img +
         '<div class="card-body">' +
-          '<span class="kind">' + p.cat + " · " + p.brand + "</span>" +
-          "<h3>" + p.name + "</h3>" +
-          "<p>" + p.blurb + "</p>" +
+          '<div class="card-top-row">' +
+            '<span class="kind">' + p.cat + '</span>' +
+            brandPill +
+          '</div>' +
+          '<h3>' + p.name + '</h3>' +
+          '<p>' + p.blurb + '</p>' +
           '<div class="card-footer">' +
             '<span class="quick-view">Quick Specs <span class="arr">↗</span></span>' +
             priceChip(p) +
           '</div>' +
-        "</div>" +
-        '</article>';
+        '</div>' +
+      '</article>';
     };
 
-    var catsEl = document.getElementById("cats");
+    function renderCatalog() {
+      var filtered = PRODUCTS.map(function (p, origIdx) {
+        return { item: p, origIdx: origIdx };
+      }).filter(function (entry) {
+        var p = entry.item;
+        var matchCat = (activeCat === "all" || p.cat === activeCat);
+        var q = activeQuery.toLowerCase();
+        var matchQuery = !q || p.name.toLowerCase().indexOf(q) >= 0 || p.brand.toLowerCase().indexOf(q) >= 0 || p.cat.toLowerCase().indexOf(q) >= 0 || (p.blurb && p.blurb.toLowerCase().indexOf(q) >= 0);
+        return matchCat && matchQuery;
+      });
+
+      if (activeSort === "price-asc") {
+        filtered.sort(function (a, b) { return parsePrice(a.item) - parsePrice(b.item); });
+      } else if (activeSort === "price-desc") {
+        filtered.sort(function (a, b) { return parsePrice(b.item) - parsePrice(a.item); });
+      } else if (activeSort === "name-asc") {
+        filtered.sort(function (a, b) { return a.item.name.localeCompare(b.item.name); });
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="catalog-empty">' +
+          '<h3>No matching machines found</h3>' +
+          '<p>Try clearing your search query or selecting "All Categories".</p>' +
+          '<button class="btn ghost" id="reset-catalog-btn" style="margin-top:16px;">Reset Filters</button>' +
+        '</div>';
+        var resetBtn = document.getElementById("reset-catalog-btn");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", function() {
+            if (searchInput) searchInput.value = "";
+            activeQuery = "";
+            activeCat = "all";
+            if (catsEl) {
+              catsEl.querySelectorAll(".cat-chip").forEach(function(b) { b.classList.remove("on"); });
+              var allBtn = catsEl.querySelector('[data-cat="all"]');
+              if (allBtn) allBtn.classList.add("on");
+            }
+            renderCatalog();
+          });
+        }
+      } else {
+        grid.innerHTML = filtered.map(function (f) {
+          return card(f.item, f.origIdx);
+        }).join("");
+      }
+
+      if (statusEl) {
+        statusEl.textContent = 'Showing ' + filtered.length + ' of ' + PRODUCTS.length + ' platforms';
+      }
+    }
+
+    var cats = [];
+    PRODUCTS.forEach(function (p) { if (cats.indexOf(p.cat) < 0) cats.push(p.cat); });
+
     if (catsEl) {
-      var all = '<button class="cat-chip on" data-cat="all">All (' + PRODUCTS.length + ")</button>";
+      var all = '<button class="cat-chip on" data-cat="all">All (' + PRODUCTS.length + ')</button>';
       catsEl.innerHTML = all + cats.map(function (c) {
         var n = PRODUCTS.filter(function (p) { return p.cat === c; }).length;
-        return '<button class="cat-chip" data-cat="' + c + '">' + c + " (" + n + ")</button>";
+        return '<button class="cat-chip" data-cat="' + c + '">' + c + ' (' + n + ')</button>';
       }).join("");
 
       catsEl.addEventListener("click", function (e) {
@@ -100,18 +169,26 @@
         if (!t) return;
         catsEl.querySelectorAll(".cat-chip").forEach(function (b) { b.classList.remove("on"); });
         t.classList.add("on");
-        var want = t.getAttribute("data-cat");
-        grid.querySelectorAll(".card").forEach(function (c) {
-          c.style.display = (want === "all" || c.getAttribute("data-cat") === want) ? "" : "none";
-        });
+        activeCat = t.getAttribute("data-cat");
+        renderCatalog();
       });
     }
 
-    grid.innerHTML = PRODUCTS.map(function(p, i) { return card(p, i); }).join("");
-    /* tag cards for the filter */
-    grid.querySelectorAll(".card").forEach(function (c, i) {
-      c.setAttribute("data-cat", PRODUCTS[i].cat);
-    });
+    if (searchInput) {
+      searchInput.addEventListener("input", function (e) {
+        activeQuery = e.target.value.trim();
+        renderCatalog();
+      });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener("change", function (e) {
+        activeSort = e.target.value;
+        renderCatalog();
+      });
+    }
+
+    renderCatalog();
 
     /* Apple-style Quick Spec Modal */
     var modal = document.createElement("div");
