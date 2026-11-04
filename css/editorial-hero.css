@@ -468,18 +468,7 @@
   color: #8e95a3;
   letter-spacing: 0.04em;
 }
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #00e575;
-  box-shadow: 0 0 8px #00e575;
-  animation: pulse-dot 2s infinite ease-in-out;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
+
 
 .status-scroll-prompt {
   display: inline-flex;
