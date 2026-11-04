@@ -109,48 +109,23 @@
         </div>
         
         <div class="editorial-dock-card">
-          <div class="dock-segment">
-            <span class="dock-label">TECHNOLOGY?</span>
+          <div class="dock-segment dock-segment-single">
+            <span class="dock-prefix-label">Platform:</span>
             <div class="dock-select-wrap">
-              <select id="dock-tech-select" class="dock-select" aria-label="Select Technology">
-                <option value="products.html" selected>All Tech</option>
-                <option value="products.html#uv">UV Flatbed</option>
-                <option value="products.html#eco-solvent">Eco-Solvent</option>
-                <option value="products.html#textile">Textile</option>
-                <option value="products.html#cnc">CNC &amp; Laser</option>
+              <select id="dock-tech-select" class="dock-select" aria-label="Select Machine Platform">
+                <option value="products.html" selected>All Industrial Machines (24)</option>
+                <option value="products.html#uv">UV Flatbed &amp; Hybrid</option>
+                <option value="products.html#eco-solvent">Eco-Solvent Roll-to-Roll</option>
+                <option value="products.html#textile">Digital Textile Systems</option>
+                <option value="products.html#cnc">CNC Routers &amp; Laser</option>
               </select>
               <span class="dock-chevron">&#x2304;</span>
             </div>
           </div>
           <div class="dock-divider"></div>
-          <div class="dock-segment">
-            <span class="dock-label">APPLICATION?</span>
-            <div class="dock-select-wrap">
-              <select id="dock-app-select" class="dock-select" aria-label="Select Application">
-                <option value="products.html" selected>Any Media</option>
-                <option value="products.html#uv">Rigid Acrylic</option>
-                <option value="products.html#eco-solvent">Outdoor Vinyl</option>
-                <option value="products.html#textile">Fabric / Apparel</option>
-                <option value="products.html#cnc">Sheet Metal</option>
-              </select>
-              <span class="dock-chevron">&#x2304;</span>
-            </div>
-          </div>
-          <div class="dock-divider"></div>
-          <div class="dock-segment">
-            <span class="dock-label">INVESTMENT?</span>
-            <div class="dock-select-wrap">
-              <select id="dock-budget-select" class="dock-select" aria-label="Select Budget Range">
-                <option value="products.html" selected>All Budgets</option>
-                <option value="products.html">&#8377; 3.5L &ndash; 12L</option>
-                <option value="products.html">&#8377; 15L &ndash; 35L</option>
-                <option value="products.html">&#8377; 35L &ndash; 55L</option>
-              </select>
-              <span class="dock-chevron">&#x2304;</span>
-            </div>
-          </div>
-          <a href="products.html" id="dock-submit-btn" class="dock-action-btn" aria-label="Find Machine">
-            <span class="dock-arrow">&#x2197;</span>
+          <a href="products.html" id="dock-submit-btn" class="dock-action-btn dock-action-pill" aria-label="Explore Machines">
+            <span>Explore</span>
+            <span class="dock-arrow">&rarr;</span>
           </a>
         </div>
       </div>
@@ -176,7 +151,7 @@
         </div>
       </a>
       <a class="card bento-card" href="products.html#eco-solvent">
-        <div class="bento-img"><img src="assets/img/curated/mimaki_solvent_roll.jpg" alt="Eco solvent flex printing" loading="lazy"></div>
+        <div class="bento-img"><img src="assets/img/curated/solvent_machine_roll.jpg" alt="Eco solvent flex printing" loading="lazy"></div>
         <div class="bento-body">
           <span class="kind">ECO-SOLVENT · FLEX</span>
           <h3>Mimaki &amp; Konica</h3>
@@ -301,18 +276,11 @@
 
   // Interactive Machine Dock Navigation
   const techSelect = document.getElementById('dock-tech-select');
-  const appSelect = document.getElementById('dock-app-select');
   const dockBtn = document.getElementById('dock-submit-btn');
 
-  function updateDockHref() {
-    if (techSelect && dockBtn) {
+  if (techSelect && dockBtn) {
+    techSelect.addEventListener('change', () => {
       dockBtn.href = techSelect.value || 'products.html';
-    }
-  }
-  if (techSelect) techSelect.addEventListener('change', updateDockHref);
-  if (appSelect) {
-    appSelect.addEventListener('change', () => {
-      if (dockBtn) dockBtn.href = appSelect.value || 'products.html';
     });
   }
 </script>
