@@ -1471,3 +1471,159 @@ html, body {
     max-width: 360px !important;
   }
 }
+
+/* ==========================================================================
+   INFINITY DIGITAL SOLUTIONS — LIGHT THEME EXTENSION
+   ========================================================================== */
+[data-theme="light"] {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --line: rgba(22, 24, 29, 0.09);
+  --line-strong: rgba(22, 24, 29, 0.18);
+  --ink: #11141a;
+  --ink-soft: #4b5262;
+  --dim: #6c757d;
+  --obsidian: #ffffff;
+  --on-photo: #ffffff;
+}
+
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+[data-theme="light"] header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="light"] header .logo {
+  color: #11141a;
+}
+[data-theme="light"] header nav a {
+  color: #4b5262;
+}
+[data-theme="light"] header nav a:hover {
+  color: var(--red);
+}
+
+[data-theme="light"] .strip {
+  background: #edf0f5;
+  color: #4b5262;
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="light"] .strip a {
+  color: var(--red);
+}
+
+[data-theme="light"] .hero-flat {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="light"] .hero-flat h1 {
+  color: #11141a;
+}
+[data-theme="light"] .hero-flat .sub {
+  color: #4b5262;
+}
+
+[data-theme="light"] .editorial-nav-bar {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="light"] .bento-card {
+  background: #ffffff;
+  border-color: rgba(22, 24, 29, 0.08);
+}
+[data-theme="light"] .why-card {
+  background: #ffffff;
+  border-color: rgba(22, 24, 29, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .why-card h3 {
+  color: #11141a;
+}
+[data-theme="light"] .why-card p {
+  color: #4b5262;
+}
+
+[data-theme="light"] .brand {
+  background: #ffffff;
+}
+[data-theme="light"] .brand h3 {
+  color: #11141a;
+}
+[data-theme="light"] .brand p {
+  color: #4b5262;
+}
+
+[data-theme="light"] .quote {
+  background: #ffffff;
+  border-color: var(--line);
+}
+
+[data-theme="light"] .field input,
+[data-theme="light"] .field select,
+[data-theme="light"] .field textarea {
+  background: #ffffff;
+  border-color: rgba(22, 24, 29, 0.16);
+  color: #11141a;
+}
+
+[data-theme="light"] footer {
+  background: #f1f3f6;
+  border-top: 1px solid var(--line);
+}
+[data-theme="light"] footer .foot-logo a {
+  color: #11141a !important;
+}
+
+[data-theme="light"] .editorial-drawer-panel {
+  background: #ffffff;
+  color: #11141a;
+}
+[data-theme="light"] .drawer-title {
+  color: #11141a;
+}
+[data-theme="light"] .drawer-link {
+  color: #11141a;
+  border-color: rgba(22, 24, 29, 0.08);
+}
+
+/* Infinity Theme Toggle Button */
+.infinity-theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.infinity-theme-toggle:hover {
+  transform: scale(1.06);
+  border-color: var(--red);
+}
+.infinity-theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+[data-theme="light"] .infinity-theme-toggle {
+  background: #ffffff;
+  border-color: rgba(22, 24, 29, 0.15);
+  color: #11141a;
+}
+
