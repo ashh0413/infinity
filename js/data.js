@@ -1,5 +1,5 @@
 /* Infinity Digital Solutions — catalog data.
-   Mapped with authentic original product photography across all platforms. */
+   Mapped with authentic high-resolution machinery photography across all platforms. */
 
 var BRANDS = [
   { name: "DOCAN",    line: "UV flatbed · hybrid · roll-to-roll", note: "The core UV range — from A4 mobile-cover units to H3000-class production." },
@@ -24,20 +24,20 @@ var PRODUCTS = [
   { name: "DOCAN FR3210M Roll UV", cat: "UV", brand: "DOCAN", blurb: "Wide-format 3.2m roll-to-roll UV platform.", price: "₹ 45,00,000", img: O + "mimaki-ujv55-320.png" },
   { name: "UV Hybrid Industrial", cat: "UV", brand: "IDS", blurb: "In-house Docan roll-to-roll hybrid with extension tables.", price: "₹ 38,00,000", img: O + "mimaki-uj330h-160.png" },
   { name: "UV Roll-to-Roll Production", cat: "UV", brand: "DOCAN", blurb: "Heavy production roll-to-roll UV with water-cooled LED lamps.", price: "₹ 40,00,000", img: O + "mimaki-ujv200-160.png" },
-  { name: "UV DTF Crystal Sticker Line", cat: "UV", brand: "DOCAN", blurb: "Direct-to-film UV transfer printer with automatic laminator.", price: "₹ 11,50,000", img: O + "mimaki-ujv300dtf-75.png" },
-  { name: "A4 UV Mobile Cover Printer", cat: "UV", brand: "DOCAN", blurb: "Small-format benchtop UV for phone covers, pens, and gifts.", price: "₹ 4,50,000", img: O + "mimaki-ujf-3042mkii-e.png" },
-  { name: "6090 UV Desktop Flatbed", cat: "UV", brand: "DOCAN", blurb: "Entry production 600×900 mm UV flatbed for custom items.", price: "₹ 9,50,000", img: O + "mimaki-ujf-6042mkii-e.png" },
+  { name: "UV DTF Crystal Sticker Line", cat: "UV", brand: "DOCAN", blurb: "Direct-to-film UV transfer printer with automatic laminator.", price: "₹ 11,50,000", img: P + "uv/uv-pvc.png" },
+  { name: "A4 UV Mobile Cover Printer", cat: "UV", brand: "DOCAN", blurb: "Small-format benchtop UV for phone covers, pens, and gifts.", price: "₹ 4,50,000", img: P + "uv/uv-a4.jpg" },
+  { name: "6090 UV Desktop Flatbed", cat: "UV", brand: "DOCAN", blurb: "Entry production 600×900 mm UV flatbed for custom items.", price: "₹ 9,50,000", img: P + "uv/uv-small.jpg" },
 
   /* ---- Eco-Solvent / Flex ---- */
-  { name: "Mimaki Eco Solvent Roll", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "High-resolution eco-solvent for indoor vinyl and photo prints.", price: "₹ 6,50,000", img: O + "mimaki-jv200-160.png" },
-  { name: "Hybrid Eco Printer", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Hybrid eco-solvent / UV platform with dual curing.", price: "₹ 13,00,000", img: O + "mimaki-cjv200-160.png" },
+  { name: "Mimaki Eco Solvent Roll", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "High-resolution eco-solvent for indoor vinyl and photo prints.", price: "₹ 6,50,000", img: C + "mimaki_solvent_roll.jpg" },
+  { name: "Hybrid Eco Printer", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Hybrid eco-solvent / UV platform with dual curing.", price: "₹ 13,00,000", img: P + "flex/flex-large.png" },
   { name: "Konica 512i-8H Industrial", cat: "Eco-Solvent / Flex", brand: "Konica", blurb: "High-speed outdoor billboard flex line with 8 Konica heads.", price: "₹ 15,50,000", img: O + "mimaki-swj-320ea.png" },
-  { name: "Mimaki 3200 AT PLUS", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "AT PLUS series 3.2m flex and banner line.", price: "₹ 12,00,000", img: O + "mimaki-jv330-160.png" },
-  { name: "Mimaki MINI 3200", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Mini 3200 series 4-inch class for sign shops.", price: "₹ 8,50,000", img: O + "mimaki-cjv330-160.png" },
-  { name: "Qi Jet High-Speed Solvent", cat: "Eco-Solvent / Flex", brand: "Infiniti", blurb: "High-end industrial solvent printer for heavy volume.", price: "₹ 10,00,000", img: P + "flex/flex-industrial.jpg" },
-  { name: "IDS-3300 Heavy Duty Flex", cat: "Eco-Solvent / Flex", brand: "IDS", blurb: "In-house heavy-duty monolithic flex printer with take-up.", price: "₹ 13,00,000", img: P + "flex/flex-wid.jpg" },
-  { name: "Mimaki UCJV300-160 Print & Cut", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Integrated printing and precision contour cutting in one pass.", price: "₹ 18,50,000", img: O + "mimaki-ucjv300-160.png" },
-  { name: "Mimaki UJF-3042 / 6042", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "UJF high-precision small-to-medium format series.", price: "₹ 16,00,000", img: O + "mimaki-ujf-7151-plus-ii.png" },
+  { name: "Mimaki 3200 AT PLUS", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "AT PLUS series 3.2m flex and banner line.", price: "₹ 12,00,000", img: C + "solvent_roll.jpg" },
+  { name: "Mimaki MINI 3200", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Mini 3200 series 4-inch class for sign shops.", price: "₹ 8,50,000", img: P + "flex/flex-print.png" },
+  { name: "Qi Jet High-Speed Solvent", cat: "Eco-Solvent / Flex", brand: "Infiniti", blurb: "High-end industrial solvent printer for heavy volume.", price: "₹ 10,00,000", img: P + "Q-Jet-Plus-1024.png" },
+  { name: "IDS-3300 Heavy Duty Flex", cat: "Eco-Solvent / Flex", brand: "IDS", blurb: "In-house heavy-duty monolithic flex printer with take-up.", price: "₹ 13,00,000", img: P + "VK-JET-3500.png" },
+  { name: "Mimaki UCJV300-160 Print & Cut", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "Integrated printing and precision contour cutting in one pass.", price: "₹ 18,50,000", img: P + "flex/flex-large.png" },
+  { name: "Mimaki UJF-3042 / 6042", cat: "Eco-Solvent / Flex", brand: "Mimaki", blurb: "UJF high-precision small-to-medium format series.", price: "₹ 16,00,000", img: P + "uv/uv-small.jpg" },
 
   /* ---- T-Shirt / Textile ---- */
   { name: "Textile Direct Fabric Roll", cat: "T-Shirt / Textile", brand: "Infiniti", blurb: "Continuous direct textile printing on fashion fabrics and sarees.", price: "₹ 22,00,000", img: O + "VKE-3208 TX.webp" },
